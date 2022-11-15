@@ -51,15 +51,17 @@
 			.then(onEnabled)
 			.catch(err => alert(err));
 	
+			let devices = []
 			function onEnabled() {
 				if (WebMidi.inputs.length < 1) {
 					console.log("No device detected.");
 				} else {
 					WebMidi.inputs.forEach((device, index) => {
 						console.log(`${index}: ${device.name}`);
+						devices.push(device.name)
 					});
 				}
-				const mySynth = WebMidi.inputs[1];
+				const mySynth = WebMidi.getInputByName(devices[3]);
 				mySynth.channels[4].addListener("noteon", e => {
 					if(e.note.name == 'E'){
 						console.log("left");
