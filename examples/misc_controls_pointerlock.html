@@ -68,6 +68,8 @@
 						} else {
 							moveLeft = false;
 						}
+						if(e.note.name == 'E'){
+					}
 					} else if(e.note.name == 'F'){
 						console.log("right")
 						if (!moveRight) {
@@ -92,14 +94,34 @@
 					}
 				});
 				mySynth.channels[5].addListener("noteon", e => {
-					console.log(`${e.note.name}`+`${e.note.octave}`);
 					if(e.note.name == 'E'){
-						console.log('E');
-						E40 = e.note.rawAttack/127;
-					}
-					else if(e.note.name == 'F'){
-						F41 = e.note.rawAttack;
-						console.log(e.note.rawAttack/127);
+						console.log("left");
+						if (!moveLeft) {
+							moveLeft = true;
+						} else {
+							moveLeft = false;
+						}
+					} else if(e.note.name == 'F'){
+						console.log("right")
+						if (!moveRight) {
+							moveRight = true;
+						} else {
+							moveRight = false;
+						}
+					} else if (e.note.name == 'G') {
+						console.log("forward")
+						if (!moveForward) {
+							moveForward = true;
+						} else {
+							moveForward = false;
+						}
+					} else if (e.note.name == 'A') {
+						console.log("backward")
+						if (!moveBackward) {
+							moveBackward = true;
+						} else {
+							moveBackward = false;
+						}
 					}
 				});
 			}
