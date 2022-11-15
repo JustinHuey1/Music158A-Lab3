@@ -62,25 +62,28 @@
 				const mySynth = WebMidi.inputs[1];
 				mySynth.channels[4].addListener("noteon", e => {
 					if(e.note.name == 'E'){
-						console.log("left" + e.note.rawAttack);
+						console.log("left");
 						if (!moveLeft) {
 							moveLeft = true;
 						} else {
 							moveLeft = false;
 						}
 					} else if(e.note.name == 'F'){
+						console.log("right")
 						if (!moveRight) {
 							moveRight = true;
 						} else {
 							moveRight = false;
 						}
 					} else if (e.note.name == 'G') {
+						console.log("forward")
 						if (!moveForward) {
 							moveForward = true;
 						} else {
 							moveForward = false;
 						}
 					} else if (e.note.name == 'A') {
+						console.log("backward")
 						if (!moveBackward) {
 							moveBackward = true;
 						} else {
