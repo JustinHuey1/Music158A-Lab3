@@ -97,43 +97,6 @@
 						}
 					}
 				});
-				mySynth.channels[4].addListener("noteon", e => {
-					if(e.note.name == 'E'){
-						console.log("left");
-						if (!moveLeft) {
-							moveLeft = true;
-							moveRight = false;
-						} else {
-							moveLeft = false;
-						}
-						if(e.note.name == 'E'){
-					}
-					} else if(e.note.name == 'F'){
-						console.log("right")
-						if (!moveRight) {
-							moveRight = true;
-							moveLeft = false;
-						} else {
-							moveRight = false;
-						}
-					} else if (e.note.name == 'G') {
-						console.log("forward")
-						if (!moveForward) {
-							moveForward = true;
-							moveBackward = false;
-						} else {
-							moveForward = false;
-						}
-					} else if (e.note.name == 'A') {
-						console.log("backward")
-						if (!moveBackward) {
-							moveBackward = true;
-							moveForward = false;
-						} else {
-							moveBackward = false;
-						}
-					}
-				});
 			}
 
 			let prevTime = performance.now();
